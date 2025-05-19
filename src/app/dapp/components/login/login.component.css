@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #172a74, #21a9af);
+    background: linear-gradient(135deg, #1a1a1a, #282828);
     position: relative;
   }
   
@@ -13,16 +13,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* Eliminamos la imagen de fondo que causa el error */
-    background-color: rgba(0, 0, 0, 0.05);
     z-index: 0;
   }
   
   .login-card {
     width: 420px;
     border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 24px rgba(80, 79, 79, 0.512);
+    background-color: rgba(36, 36, 36, 0.74);
     z-index: 1;
     overflow: hidden;
     position: relative;
@@ -42,7 +40,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(90deg, #f6851b, #e2761b);
+    background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
   }
   
   .login-title {
@@ -50,7 +48,7 @@
     margin-bottom: 8px;
     font-size: 28px;
     font-weight: 600;
-    background: linear-gradient(90deg, #3a36db, #f6851b);
+    background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;       
@@ -92,7 +90,8 @@
   }
   
   .metamask-button {
-    background: linear-gradient(90deg, #f6851b, #e2761b);
+
+    background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
     border: none;
     margin-bottom: 16px;
     display: flex;
@@ -106,9 +105,10 @@
   }
   
   .metamask-button:hover {
-    background: linear-gradient(90deg, #e2761b, #d26118);
+
+    background: linear-gradient(90deg, #da6afa 0%, #f860fb 100%);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(246, 133, 27, 0.4);
+    box-shadow: 0 5px 15px rgba(219, 218, 218, 0.4);
   }
   
   .metamask-connected {
@@ -125,7 +125,7 @@
   
   .metamask-icon {
     font-size: 56px;
-    color: #52c41a;
+    color: #fee608;
   }
   
   .wallet-address {
