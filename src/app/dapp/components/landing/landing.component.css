@@ -221,32 +221,39 @@
   background-color: #0a0a0a;
 }
 
+/* Títulos */
 .about-section h2 {
   color: #fcd708;
-  margin-bottom: 2rem;
-}
-.about-section h3 {
-  color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
+.about-section h3 {
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* Texto */
 .about-section p {
   color: #a0a0a0;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 2rem;
 }
 
+/* Lista */
 .about-section ul {
   color: #e7e7e7;
-  list-style-type: none;
+  list-style: none;
   padding-left: 0;
 }
 
 .about-section ul li {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
   position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .about-section ul li::before {
@@ -254,13 +261,23 @@
   position: absolute;
   left: 0;
   color: #fdec03;
+  font-weight: bold;
+}
+
+/* Imagen */
+.about-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-image img {
-  width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(18, 18, 18, 0.3);
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
 }
+
 
 /* Team Section */
 .team-section {
