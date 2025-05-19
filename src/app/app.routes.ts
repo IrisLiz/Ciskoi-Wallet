@@ -5,9 +5,10 @@ import { DashboardComponent } from './dapp/components/dashboard/dashboard.compon
 import { ContactComponent } from './dapp/components/contact/contact.component';
 import { TransferenciasComponent } from './dapp/components/transferencias/transferencias.component';
 import { ConfiguracionComponent } from './dapp/components/configuracion/configuracion.component';
+import { LandingComponent } from './dapp/components/landing/landing.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'wallet',
