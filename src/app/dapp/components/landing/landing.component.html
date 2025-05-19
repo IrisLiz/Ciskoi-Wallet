@@ -6,11 +6,11 @@
       <p class="hero-subtitle">Tu puerta de entrada al futuro de las finanzas digitales</p>
       <div class="hero-buttons">
         <a nz-button nzType="primary" nzSize="large" routerLink="/login">
-          Comenzar Ahora
+          Iniciar Sesion
           <i nz-icon nzType="arrow-right"></i>
         </a>
         <a nz-button nzSize="large" href="#features">
-          Conoce Más
+          Mas abajo
           <i nz-icon nzType="down"></i>
         </a>
       </div>
@@ -51,20 +51,20 @@
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="team-section">
-    <h2 nz-typography>Nuestro Equipo</h2>
-    <div nz-row [nzGutter]="[24, 24]">
-      <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8" *ngFor="let member of teamMembers">
-        <nz-card class="team-card">
-          <nz-avatar [nzSize]="128" [nzSrc]="member.image"></nz-avatar>
-          <h3>{{member.name}}</h3>
-          <p class="member-role">{{member.role}}</p>
-          <p class="member-bio">{{member.bio}}</p>
-        </nz-card>
-      </div>
+<!-- Team Section -->
+<section class="team-section">
+  <h2 nz-typography>Nuestro Equipo</h2>
+  <div nz-row [nzGutter]="[24, 24]">
+    <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8" *ngFor="let member of teamMembers">
+      <nz-card class="team-card">
+        <nz-avatar [nzSize]="128" [nzSrc]="member.image" nzShape="circle"></nz-avatar>
+        <h3>{{ member.name }}</h3>
+        <p class="member-role">{{ member.role }}</p>
+        <p class="member-bio">{{ member.bio }}</p>
+      </nz-card>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CTA Section -->
   <section class="cta-section">

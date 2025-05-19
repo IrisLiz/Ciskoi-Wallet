@@ -138,6 +138,11 @@
   border: 1px solid #333;
   text-align: center;
   height: 100%;
+  display: flex; /* Usar flexbox para centrar */
+  flex-direction: column; /* Alinear en columna */
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
+  padding: 2rem; /* Espaciado interno */
 }
 
 .team-card nz-avatar {
@@ -157,6 +162,7 @@
 .member-bio {
   color: #a0a0a0;
 }
+
 
 /* CTA Section */
 .cta-section {
