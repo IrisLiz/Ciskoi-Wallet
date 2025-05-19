@@ -238,7 +238,7 @@
 }
 
 .about-section ul {
-  color: #f1eeee;
+  color: #e7e7e7;
   list-style-type: none;
   padding-left: 0;
 }
@@ -257,9 +257,9 @@
 }
 
 .about-image img {
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(248, 242, 247, 0.3);
+  box-shadow: 0 0 20px rgba(18, 18, 18, 0.3);
 }
 
 /* Team Section */
