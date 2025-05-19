@@ -13,10 +13,14 @@
   text-align: center;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
   max-width: 800px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content h1 {
@@ -25,6 +29,7 @@
   background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .hero-subtitle {
@@ -37,6 +42,59 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+
+/* Botones Modernos */
+.modern-button {
+  position: relative;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.modern-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modern-button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modern-button:hover {
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.496), 0 0 35px rgba(24, 217, 217, 0.348);
+}
+
+.modern-button i {
+  margin-left: 0.5rem;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Features Section */
@@ -88,6 +146,10 @@
   color: #ffffff;
   margin-bottom: 2rem;
 }
+.about-section h3 {
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
 
 .about-section p {
   color: #a0a0a0;
@@ -97,7 +159,7 @@
 }
 
 .about-section ul {
-  color: #a0a0a0;
+  color: #f1eeee;
   list-style-type: none;
   padding-left: 0;
 }
