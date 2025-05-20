@@ -1,4 +1,7 @@
 <div class="landing-container">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+
   <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-wrapper">
@@ -56,7 +59,7 @@
 
 <!-- Team Seccion -->
 <section class="team-section">
-  <h2 nz-typography>Nuestro Equipo</h2>
+  <h2 nz-typography>Nuestro Teams</h2>
   <div nz-row [nzGutter]="[24, 24]">
     <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8" *ngFor="let member of teamMembers">
       <nz-card class="team-card">
@@ -64,18 +67,34 @@
         <h3>{{ member.name }}</h3>
         <p class="member-role">{{ member.role }}</p>
         <p class="member-bio">{{ member.bio }}</p>
+
+      <!-- Redes sociales con logos coloridos -->
+        <div class="social-icons">
+          <a *ngIf="member.social.github" [href]="member.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-grise.png" alt="GitHub" />
+          </a>
+          <a *ngIf="member.social.instagram" [href]="member.social.instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401_640.png" alt="Instagram" />
+          </a>
+        </div>
+
+
       </nz-card>
     </div>
   </div>
 </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <h2 nz-typography>¿Listo para empezar?</h2>
-    <p>Únete a la revolución de las finanzas digitales hoy mismo</p>
-    <a nz-button nzType="primary" nzSize="large" routerLink="/login">
-      Crear Cuenta
-      <i nz-icon nzType="right"></i>
-    </a>
-  </section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <h2 nz-typography>¿Listo para empezar?</h2>
+  <p>Únete a la revolución de las finanzas digitales hoy mismo</p>
+  <a nz-button 
+     nzSize="large" 
+     routerLink="/login" 
+     class="custom-dark-btn">
+    Crear Cuenta
+    <i nz-icon nzType="right"></i>
+  </a>
+</section>
 </div>
