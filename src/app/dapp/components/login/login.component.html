@@ -5,35 +5,134 @@
       <i nz-icon nzType="wallet" nzTheme="fill" style="font-size: 64px; color: #ffd900;"></i>
     </div>
     
-    <h1 class="login-title" nz-typography nzType="secondary">Bienvenido a tu DApp</h1>
+    <h1 class="login-title" nz-typography nzType="secondary">Bienvenido a CISKOI Wallet</h1>
     <p class="login-subtitle">Conecta tu wallet para empezar a operar</p>
+    
+    <!-- Mostrar error de conexión si existe -->
+    <nz-alert 
+      *ngIf="connectionError" 
+      [nzType]="'error'" 
+      [nzMessage]="connectionError" 
+      [nzShowIcon]="true" 
+      [nzCloseable]="true"
+      (nzOnClose)="connectionError = ''"
+      class="connection-error">
+    </nz-alert>
     
     <div *ngIf="isMetaMaskConnected; else loginForms" class="metamask-connected">
       <div class="metamask-success">
         <i nz-icon nzType="check-circle" nzTheme="fill" class="metamask-icon"></i>
         <h2>Conectado a MetaMask</h2>
-        <p class="wallet-address">Wallet: {{walletAddress | slice:0:6}}...{{walletAddress | slice:-4}}</p>
+        <div class="connection-info">
+          <div class="wallet-address">
+            <span class="label">Wallet:</span>
+            <span class="address">{{walletAddress | slice:0:6}}...{{walletAddress | slice:-4}}</span>
+          </div>
+          <div class="network-info">
+            <span class="label">Red:</span>
+            <nz-tag [nzColor]="getSelectedNetwork()?.color || '#108ee9'">
+              <i nz-icon [nzType]="getSelectedNetwork()?.icon || 'global'" nzTheme="outline"></i>
+              {{currentNetwork}}
+            </nz-tag>
+          </div>
+        </div>
         <p>Redirigiendo a tu wallet...</p>
         <nz-spin nzSimple></nz-spin>
       </div>
     </div>
     
     <ng-template #loginForms>
+      <!-- Selector de Red -->
+      <div class="network-selector">
+        <h3 class="section-title">
+          <i nz-icon nzType="global" nzTheme="outline"></i>
+          Seleccionar Red
+        </h3>
+        
+        <div class="network-options">
+          <div 
+            *ngFor="let network of supportedNetworks" 
+            class="network-option"
+            [class.selected]="selectedNetworkId === network.chainId"
+            (click)="onNetworkChange(network.chainId)">
+            <div class="network-icon">
+              <i nz-icon [nzType]="network.icon" nzTheme="outline" [style.color]="network.color"></i>
+            </div>
+            <div class="network-details">
+              <span class="network-name">{{network.displayName}}</span>
+              <span class="network-symbol">{{network.nativeCurrency.symbol}}</span>
+            </div>
+            <div class="network-status">
+              <i *ngIf="selectedNetworkId === network.chainId" 
+                 nz-icon nzType="check-circle" nzTheme="fill" 
+                 style="color: #52c41a;"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Opción de recordar red -->
+        <div class="remember-option">
+          <nz-switch 
+            [(ngModel)]="rememberNetwork" 
+            (ngModelChange)="onRememberNetworkChange($event)"
+            [ngModelOptions]="{standalone: true}">
+          </nz-switch>
+          <span class="remember-label">Recordar mi red preferida</span>
+        </div>
+      </div>
+      
+      <nz-divider nzText="Conectar Wallet" nzOrientation="center"></nz-divider>
+      
+      <!-- Botón de conexión principal -->
       <button 
         nz-button 
         nzType="primary" 
         nzBlock 
+        nzSize="large"
         class="metamask-button"
         (click)="connectMetaMask()" 
         [nzLoading]="isLoading"
-        ngSkipHydration><!-- Añadido ngSkipHydration para prevenir errores de hidratación -->
+        ngSkipHydration>
         <i nz-icon nzType="wallet" nzTheme="outline"></i>
-        Conectar con MetaMask
+        <span *ngIf="!isLoading">Conectar con MetaMask</span>
+        <span *ngIf="isLoading">Conectando...</span>
       </button>
+      
+      <!-- Información adicional -->
+      <div class="connection-info-box">
+        <div class="info-item">
+          <i nz-icon nzType="safety-certificate" nzTheme="outline"></i>
+          <span>Conexión segura y encriptada</span>
+        </div>
+        <div class="info-item">
+          <i nz-icon nzType="shield-check" nzTheme="outline"></i>
+          <span>Tus claves privadas permanecen seguras</span>
+        </div>
+        <div class="info-item">
+          <i nz-icon nzType="thunderbolt" nzTheme="outline"></i>
+          <span>Transacciones rápidas y confiables</span>
+        </div>
+      </div>
+      
+      <!-- Ayuda para instalar MetaMask -->
+      <div class="metamask-help">
+        <p class="help-text">¿No tienes MetaMask instalado?</p>
+        <a href="https://metamask.io/download/" target="_blank" rel="noopener noreferrer" class="download-link">
+          <i nz-icon nzType="download" nzTheme="outline"></i>
+          Descargar MetaMask
+        </a>
+      </div>
     </ng-template>
     
     <div class="login-footer">
-      <p>© 2025 CISKOI</p>
+      <p>© 2025 CISKOI - Wallet Descentralizada</p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Términos de Uso</a>
+        <span class="separator">•</span>
+        <a href="#" class="footer-link">Política de Privacidad</a>
+        <span class="separator">•</span>
+        <a href="#" class="footer-link">Soporte</a>
+      </div>
     </div>
   </nz-card>
 </div>
