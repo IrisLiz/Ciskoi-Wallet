@@ -5,7 +5,7 @@
   align-items: center;
   background: linear-gradient(135deg, #1a1a1a, #282828);
   position: relative;
-  padding: 20px;
+  padding: 16px;
 }
 
 .login-background {
@@ -19,158 +19,197 @@
 
 .login-card {
   width: 100%;
-  max-width: 480px;
-  border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(80, 79, 79, 0.512);
-  background-color: rgba(36, 36, 36, 0.74);
+  max-width: 520px;
+  min-height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(20px);
   z-index: 1;
   overflow: hidden;
   position: relative;
+  border: 1px solid rgba(199, 0, 254, 0.2);
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c700fe 0%, #f602fa 50%, #c700fe 100%);
+  z-index: 1;
 }
 
 .login-logo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  padding-top: 8px;
 }
 
-.login-logo img {
-  height: 80px;
-  margin: 0 auto;
-  content: "";
-  display: block;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
+.login-logo i {
+  font-size: 48px;
+  color: #ffd900;
+  filter: drop-shadow(0 4px 8px rgba(255, 217, 0, 0.3));
 }
 
 .login-title {
   text-align: center;
-  margin-bottom: 8px;
-  font-size: 28px;
-  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 24px;
+  font-weight: 700;
   background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;       
   -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
 }
 
 .login-subtitle {
   text-align: center;
-  margin-bottom: 32px;
-  color: #666;
-  font-size: 16px;
+  margin-bottom: 24px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .connection-error {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 /* Network Selector Styles */
 .network-selector {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .section-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 16px;
-  font-size: 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
 }
 
 .network-options {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .network-option {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  border: 2px solid #444;
+  padding: 10px 12px;
+  border: 1.5px solid #444;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  min-height: 60px;
 }
 
 .network-option:hover {
   border-color: #c700fe;
-  background: rgba(199, 0, 254, 0.1);
-  transform: translateY(-2px);
+  background: rgba(199, 0, 254, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(199, 0, 254, 0.2);
 }
 
 .network-option.selected {
   border-color: #c700fe;
-  background: linear-gradient(90deg, rgba(199, 0, 254, 0.2) 0%, rgba(246, 2, 250, 0.2) 100%);
-  box-shadow: 0 4px 12px rgba(199, 0, 254, 0.3);
+  background: linear-gradient(135deg, rgba(199, 0, 254, 0.15) 0%, rgba(246, 2, 250, 0.15) 100%);
+  box-shadow: 0 4px 16px rgba(199, 0, 254, 0.3);
 }
 
 .network-icon {
-  margin-right: 12px;
-  font-size: 24px;
+  margin-right: 10px;
+  font-size: 20px;
+  min-width: 20px;
 }
 
 .network-details {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .network-name {
   font-weight: 600;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .network-symbol {
-  font-size: 12px;
+  font-size: 11px;
   color: #999;
+  line-height: 1.2;
 }
 
 .network-status {
-  font-size: 18px;
+  font-size: 16px;
+  min-width: 16px;
 }
 
 .remember-option {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .remember-label {
   color: #ccc;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* MetaMask Button */
 .metamask-button {
-  background: linear-gradient(90deg, #c700fe 0%, #f602fa 100%);
+  background: linear-gradient(135deg, #c700fe 0%, #f602fa 100%);
   border: none;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 56px;
-  font-size: 16px;
+  height: 48px;
+  font-size: 15px;
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(199, 0, 254, 0.4);
+  box-shadow: 0 4px 16px rgba(199, 0, 254, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.metamask-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.metamask-button:hover::before {
+  left: 100%;
 }
 
 .metamask-button:hover {
-  background: linear-gradient(90deg, #da6afa 0%, #f860fb 100%);
+  background: linear-gradient(135deg, #da6afa 0%, #f860fb 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(199, 0, 254, 0.6);
+  box-shadow: 0 6px 24px rgba(199, 0, 254, 0.6);
 }
 
 .metamask-button:active {
@@ -179,19 +218,20 @@
 
 /* Connection Info Box */
 .connection-info-box {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .info-item {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #ccc;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .info-item:last-child {
@@ -200,18 +240,19 @@
 
 .info-item i {
   color: #52c41a;
+  font-size: 14px;
 }
 
 /* MetaMask Help */
 .metamask-help {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .help-text {
   color: #999;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
 .download-link {
@@ -220,7 +261,7 @@
   gap: 6px;
   color: #1890ff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -232,36 +273,37 @@
 /* Connected State */
 .metamask-connected {
   text-align: center;
-  padding: 24px 0;
+  padding: 20px 0;
 }
 
 .metamask-success {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .metamask-icon {
-  font-size: 56px;
+  font-size: 48px;
   color: #52c41a;
 }
 
 .connection-info {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
 }
 
 .connection-info > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
+  padding: 6px 10px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
+  font-size: 13px;
 }
 
 .label {
@@ -270,30 +312,31 @@
 }
 
 .address {
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
   color: #fff;
+  font-size: 12px;
 }
 
 .network-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* Footer */
 .login-footer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 20px;
   color: #999;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .footer-links {
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -301,6 +344,7 @@
   color: #999;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 11px;
 }
 
 .footer-link:hover {
@@ -309,27 +353,32 @@
 
 .separator {
   color: #666;
+  font-size: 10px;
 }
 
 /* Form styling */
 :host ::ng-deep .ant-input-affix-wrapper {
-  height: 44px;
+  height: 40px;
   border-radius: 8px;
 }
 
 :host ::ng-deep .ant-input {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 :host ::ng-deep .ant-btn {
-  height: 44px;
+  height: 40px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
+:host ::ng-deep .ant-divider {
+  margin: 16px 0;
+}
+
 :host ::ng-deep .ant-divider-inner-text {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #888;
 }
@@ -344,38 +393,51 @@
   gap: 4px;
   border-radius: 6px;
   font-weight: 500;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+:host ::ng-deep .ant-alert {
+  border-radius: 8px;
+  font-size: 13px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
-    padding: 16px;
+    padding: 12px;
   }
   
   .login-card {
     max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .network-options {
+    grid-template-columns: 1fr;
   }
   
   .network-option {
-    padding: 10px 12px;
+    padding: 8px 10px;
+    min-height: 50px;
   }
   
   .network-name {
-    font-size: 13px;
+    font-size: 12px;
   }
   
   .network-symbol {
-    font-size: 11px;
+    font-size: 10px;
   }
   
   .metamask-button {
-    height: 48px;
-    font-size: 15px;
+    height: 44px;
+    font-size: 14px;
   }
   
   .footer-links {
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
   }
   
   .separator {
@@ -384,12 +446,16 @@
 }
 
 @media (max-width: 480px) {
+  .login-container {
+    padding: 8px;
+  }
+  
   .login-title {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .login-subtitle {
-    font-size: 14px;
+    font-size: 13px;
   }
   
   .connection-info {
@@ -399,7 +465,32 @@
   .connection-info > div {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 3px;
+    padding: 8px;
+  }
+  
+  .network-options {
+    gap: 6px;
+  }
+  
+  .network-option {
+    min-height: 45px;
+  }
+}
+
+@media (min-width: 769px) {
+  .login-card {
+    max-width: 580px;
+  }
+  
+  .network-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-card {
+    max-width: 620px;
   }
 }
 
@@ -415,14 +506,58 @@
   }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .login-card {
-  animation: fadeIn 0.6s ease-out;
+  animation: slideIn 0.4s ease-out;
 }
 
 .network-option {
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.3s ease-out;
 }
 
 .metamask-success {
-  animation: fadeIn 0.8s ease-out;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Glassmorphism effect */
+.login-card {
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.connection-info-box {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hover effects */
+.network-option {
+  position: relative;
+  overflow: hidden;
+}
+
+.network-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(199, 0, 254, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.network-option:hover::before {
+  left: 100%;
 }
